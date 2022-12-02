@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+  <script>
+    // create options variable to enable the choices of "rock", "paper", or "scissors"
+    // create function to generate random computer choice 
+    // creat choice variable that will equal one of the options 
+    // Use Math.random to to choose a number between 0 and 1
+    // Use Math.floor to round number down to nearest integer
+    // Use options.length to multiply by 3 and ensure the number will be 1, 2 or 3, corresponding with the 3 options
+    const options = ["rock", "paper", "scissors"];
+
+    function getComputerChoice(){
+        const choice = options[Math.floor(Math.random() * options.length)];
+        return choice;
+    }
+    console.log (getComputerChoice());
+
+
+
+  </script>
+</body>
+</html>
