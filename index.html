@@ -6,19 +6,55 @@
 </head>
 <body>
   <script>
-    // create options variable to enable the choices of "rock", "paper", or "scissors"
-    // create function to generate random computer choice 
-    // creat choice variable that will equal one of the options 
+    // Create options variable to enable the choices of "rock", "paper", or "scissors"
+    // Create function to generate random computer choice 
+    // Create choice variable that will equal one of the options 
     // Use Math.random to to choose a number between 0 and 1
     // Use Math.floor to round number down to nearest integer
-    // Use options.length to multiply by 3 and ensure the number will be 1, 2 or 3, corresponding with the 3 options
-    const options = ["rock", "paper", "scissors"];
+    // Create function to simulate one round of rock, paper, scissors using playerSelection and computerSelection as parameters
+    // Write out 9 "if" statements to account for every possbile outcome: win, loss, tie
+    // Set playerSelection variable equal to "rock"
+    // Set compuerSelection variable equal to the getComputerChoice function
+    // Run the function
+    // Still need to figure out how to make playerSelection parameter case-insensitive
+    
 
-    function getComputerChoice(){
-        const choice = options[Math.floor(Math.random() * options.length)];
+    function getComputerChoice() {
+        const options = ["rock", "paper", "scissors"]
+        const randomNum = Math.floor(Math.random() * 3)
+        const choice = options[randomNum]
         return choice;
     }
-    console.log (getComputerChoice());
+
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection === "rock" && computerSelection === "rock") {
+            return "You tied!"
+        } else if (playerSelection === "scissors" && computerSelection === "scissors") {
+            return "You tied!"
+        } else if (playerSelection === "paper" && computerSelection === "scissors") {
+            return "you tied!"
+        } else if (playerSelection === "rock" && computerSelection === "scissors") {
+            return "You won!"
+        } else if (playerSelection === "scissors" && computerSelection === "paper") {
+            return "You won!"
+        } else if (playerSelection === "paper" && computerSelecton === "rock") {
+            return "You won!"
+        } else if (playerSelection === "rock" && computerSelection === "paper") {
+            return "You lost!"
+        } else if (playerSelection === "paper" && computerSelection === "scissors") {
+            return "You lost!"
+        } else if (playerSelection === "scissors" && computerSelection === "rock") {
+            return "You lost!"
+        }
+    }
+
+    const playerSelection = "Rock";
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+
+        
+
+
 
 
 
