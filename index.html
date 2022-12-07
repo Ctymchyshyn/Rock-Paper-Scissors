@@ -18,8 +18,15 @@
     // Run the function
     // Still need to figure out how to make playerSelection parameter case-insensitive
     // Add .toLowerCase to playerSelection when it eaquals "rock" to make player selection case-insensitive
-    
-    
+    // Create playerScore and computerScore. Set both to zero
+    // Create game() function to play 5 rounds and determine winner
+    // Add loop and playRound function
+    // Add const computerSelection = getComputerChoice to game() function to loop random computer choice
+    // Add conditions to game() function to account for all possibilities
+
+
+    let playerScore = 0
+    let computerScore = 0
 
     function getComputerChoice() {
         const options = ["rock", "paper", "scissors"]
@@ -36,23 +43,45 @@
         } else if (playerSelection === "paper" && computerSelection === "scissors") {
             return "you tied!"
         } else if (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors") {
+            playerScore++
             return "You won!"
         } else if (playerSelection === "scissors" && computerSelection === "paper") {
+            playerScore++
             return "You won!"
         } else if (playerSelection === "paper" && computerSelecton === "rock") {
+            playerScore++
             return "You won!"
         } else if (playerSelection.toLowerCase() === "rock" && computerSelection === "paper") {
+            computerScore++
             return "You lost!"
         } else if (playerSelection === "paper" && computerSelection === "scissors") {
+            computerScore++
             return "You lost!"
         } else if (playerSelection === "scissors" && computerSelection === "rock") {
+            computerScore++
             return "You lost!"
         }
     }
 
     const playerSelection = "ROCK";
-    const computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
+    
+
+    function game() {
+        for (let i = 0; i < 5; i++) {
+            const computerSelection = getComputerChoice()
+            playRound(playerSelection, computerSelection)
+        }
+        if (playerScore > computerScore) {
+            return "You beat the computer!"
+        } else if (playerScore < computerScore) {
+            return "You lost to the computer. Rethink your life"
+        } else {
+            return "It's a tie!"
+        }
+
+    }
+
+    console.log(game());
 
 
 
