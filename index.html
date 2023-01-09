@@ -1,105 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
   <title>Rock, Paper, Scissors</title>
+  <meta charset="UTF-8">
+  <meta name ="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <script>
-    // Create options variable to enable the choices of "rock", "paper", or "scissors"
-    // Create function to generate random computer choice 
-    // Create choice variable that will equal one of the options 
-    // Use Math.random to to choose a number between 0 and 1
-    // Use Math.floor to round number down to nearest integer
-    // Create function to simulate one round of rock, paper, scissors using playerSelection and computerSelection as parameters
-    // Write out 9 "if" statements to account for every possbile outcome: win, loss, tie
-    // Set playerSelection variable equal to "rock"
-    // Set compuerSelection variable equal to the getComputerChoice function
-    // Run the function
-    // Still need to figure out how to make playerSelection parameter case-insensitive
-    // Add .toLowerCase to playerSelection when it eaquals "rock" to make player selection case-insensitive
-    // Create playerScore and computerScore. Set both to zero
-    // Create game() function to play 5 rounds and determine winner
-    // Add loop and playRound function
-    // Add const computerSelection = getComputerChoice to game() function to loop random computer choice
-    // Add conditions to game() function to account for all possibilities
-    // Add playerSelection to game() function
-    // Create prompt for playerSelection
-    // Get rid of toLowerCase in playRound function
-    // add .toLowerCase to end of prompt to allow for case insensitive answers 
-
-
-    let playerScore = 0
-    let computerScore = 0
-
-    function getComputerChoice() {
-        const options = ["rock", "paper", "scissors"]
-        const randomNum = Math.floor(Math.random() * 3)
-        const choice = options[randomNum]
-        return choice;
-    }
-
-    function playRound(playerSelection, computerSelection) {
-        if (playerSelection === "rock" && computerSelection === "rock") {
-            return "You tied!"
-        } else if (playerSelection === "scissors" && computerSelection === "scissors") {
-            return "You tied!"
-        } else if (playerSelection === "paper" && computerSelection === "scissors") {
-            return "you tied!"
-        } else if (playerSelection === "rock" && computerSelection === "scissors") {
-            playerScore++
-            return "You won!"
-        } else if (playerSelection === "scissors" && computerSelection === "paper") {
-            playerScore++
-            return "You won!"
-        } else if (playerSelection === "paper" && computerSelection === "rock") {
-            playerScore++
-            return "You won!"
-        } else if (playerSelection === "rock" && computerSelection === "paper") {
-            computerScore++
-            return "You lost!"
-        } else if (playerSelection === "paper" && computerSelection === "scissors") {
-            computerScore++
-            return "You lost!"
-        } else if (playerSelection === "scissors" && computerSelection === "rock") {
-            computerScore++
-            return "You lost!"
-        }
-    }
-
-    
-    
-
-    function game() {
-        for (let i = 0; i < 5; i++) {
-            const playerSelection = prompt("Make your choice", "Rock, Paper, Scissors").toLowerCase()
-            const computerSelection = getComputerChoice()
-            console.log(playRound(playerSelection, computerSelection))
-        }
-        if (playerScore > computerScore) {
-            return "You beat the computer!"
-        } else if (playerScore < computerScore) {
-            return "You lost to the computer. Rethink your life"
-        } else {
-            return "It's a tie!"
-        }
-
-    }
-
-    console.log(game());
-
-
-
-
-
-
-
-        
-
-
-
-
-
-  </script>
+    <div class="running-score">
+        <span class="player-score">Player Score: </span>
+        <span class="computer-score">Computer Score</span>
+    </div>
+    <div class="container">
+       <button class="rock">Rock</button>
+       <button class="paper">Paper</button>
+       <button class="scissors">Scissors</button>
+    </div>
+    <div class="outcome">
+    </div>
+    <script src="./rps.js"></script>
 </body>
 </html>
